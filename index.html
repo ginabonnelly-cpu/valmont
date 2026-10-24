@@ -1,0 +1,227 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><title>Valmont Case Files</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600;1,9..144,800&family=Josefin+Sans:wght@400;600;700&family=Special+Elite&display=swap">
+<style>
+/* Layout: one narrow phone column per file (character, zone, evidence), a hero image on top, a tall stack of labelled panels below. Single dark "1977 backstage" look. */
+:root{
+  --ground:#1A0F09; --panel:#2A1810; --panel-2:#3A2216; --ink:#F2E3C6; --ink-soft:#C9B28E;
+  --mustard:#D9A53A; --rust:#C4581F; --wine:#9A3522; --line:#4A2E1E; --paper:#EFE2C4; --paper-ink:#2A1A10;
+  --display:"Fraunces",Georgia,"Times New Roman",serif; --body:"Josefin Sans","Avenir Next","Segoe UI",sans-serif;
+  --type:"Special Elite","Courier New",monospace; --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.bar{display:flex;justify-content:space-between;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mustard);font-weight:600;padding-top:16px}
+.bar span:last-child{color:var(--ink-soft)}
+.hero{position:relative;border-radius:14px;overflow:hidden;background:var(--panel);max-width:100%}
+.hero img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+.hero.sq img{aspect-ratio:1/1}
+.hero .cap{position:absolute;inset:auto 0 0 0;padding:70px 18px 16px;background:linear-gradient(transparent,rgba(20,10,5,.92))}
+h1{font-family:var(--display);font-style:italic;font-weight:800;font-size:clamp(30px,8.5vw,42px);line-height:1.02;margin:0;text-wrap:balance}
+.role{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--mustard);font-weight:700;margin-top:6px}
+.item{background:var(--mustard);color:#24150B;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.item b{font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.lab{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700}
+.panel p{margin:0}
+.rounds{display:grid;gap:10px}
+.rnd{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.rnd .no{font-family:var(--display);font-style:italic;font-weight:800;font-size:30px;color:var(--mustard);line-height:1}
+.rnd .verb{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);font-weight:700}
+.rnd p{margin:2px 0 0;min-width:0}
+.secret{position:relative}
+.secret .txt{filter:blur(7px);transition:filter .25s;user-select:none}
+.secret.open .txt{filter:none;user-select:auto}
+button{font:inherit;cursor:pointer}
+.reveal{align-self:flex-start;background:transparent;color:var(--mustard);border:1px solid var(--mustard);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;letter-spacing:.05em}
+.reveal:focus-visible,.btn:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--mustard);outline-offset:2px}
+.killer{background:var(--wine);border-radius:12px;padding:14px 16px;font-family:var(--display);font-style:italic;font-weight:800;font-size:24px;line-height:1.1}
+.killer small{display:block;font-family:var(--body);font-style:normal;font-weight:600;font-size:13px;letter-spacing:.04em;margin-top:6px;color:#F7D9C6}
+.note{font-size:13px;color:var(--ink-soft);text-align:center}
+.kicker{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--rust);font-weight:700}
+.where{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.where b{color:var(--mustard)}
+/* paper documents */
+.doc{background:var(--paper);color:var(--paper-ink);border-radius:4px;padding:22px 20px;box-shadow:0 14px 30px rgba(0,0,0,.45);transform:rotate(-1.2deg);margin:6px 4px}
+.doc .head{font-family:var(--type);font-size:13px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1.5px solid var(--paper-ink);padding-bottom:6px;margin-bottom:10px;display:flex;justify-content:space-between;gap:8px}
+.doc .body{font-family:var(--type);font-size:15px;line-height:1.6}
+.doc.hand .body{font-family:var(--hand);font-size:24px;line-height:1.3;font-weight:500}
+.doc.burnt{background:radial-gradient(circle at 0 0,#2a160b 0 22px,transparent 52px),radial-gradient(circle at 100% 100%,#2a160b 0 30px,transparent 70px),radial-gradient(circle at 100% 0,#5a3018 0 16px,transparent 44px),linear-gradient(#e9d5a8,#d9bd86);transform:rotate(1.4deg)}
+.doc .stamp{display:inline-block;margin-top:14px;border:2px solid var(--wine);color:var(--wine);font-family:var(--type);font-size:12px;letter-spacing:.12em;padding:3px 8px;transform:rotate(-5deg)}
+/* accusation */
+.acc{display:flex;flex-direction:column;gap:10px}
+.acc label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+.acc select,.acc textarea{width:100%;background:var(--ground);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px;font:inherit;font-size:16px}
+.btn{background:var(--rust);color:#FFF4E2;border:0;border-radius:999px;padding:12px 18px;font-weight:700;letter-spacing:.05em;min-height:44px}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink-soft)}
+.sealed{background:var(--paper);color:var(--paper-ink);border-radius:6px;padding:16px;font-family:var(--type);display:grid;gap:6px}
+.sealed div span{display:block;font-size:11px;letter-spacing:.14em;opacity:.7}
+/* host */
+.host h2{font-family:var(--display);font-style:italic;font-weight:800;font-size:24px;margin:18px 0 0}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mustard);background:var(--panel)}
+td{font-variant-numeric:tabular-nums}
+.say{font-family:var(--display);font-style:italic;font-size:17px;line-height:1.5}
+.linkbtn{background:none;border:0;color:var(--mustard);text-decoration:underline;padding:0;font-size:14px;font-weight:600}
+.back{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;align-self:flex-start;margin-top:12px;background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600}
+.landing{min-height:70vh;display:flex;flex-direction:column;justify-content:center;gap:16px;text-align:center}
+.landing h1{font-size:clamp(36px,11vw,56px)}
+.script{font-family:var(--hand);font-size:44px;color:var(--mustard);line-height:1}
+@media (prefers-reduced-motion:reduce){.secret .txt{transition:none}}
+</style>
+
+</head><body><div class="wrap" id="app"></div>
+
+<script>
+const DATA = {"chars": [{"n": 1, "name": "Isabella Valmont", "role": "The birthday girl", "item": "A guitar-pick necklace. Put it on now.", "who": "Today you turn 18. Your parents, musicians in the band, died when you were little, and your uncle and godfather, rock legend Gus Valmont, raised you in this mansion. You secretly play guitar and dream of having your own band.", "secret": "This afternoon you fought with your uncle because he forbade you from going on tour in London with your band. You shouted “I wish you’d just disappear!” and your cousin Nessa heard you. You also know you’re the main heir in the will.", "r1": "From 11:00 to 11:20 I was on the Dance Floor opening presents with Margot Ashford.", "r2": "This afternoon my uncle told me, very seriously: “I’ve trusted someone too much. Your royalties are not where they should be.”", "r3": "On the Dance Floor, between 11:00 and 11:30, it was only Margot (she left at 11:20), Max Moretti, Dr. Ferrer and me. Nobody else.", "mission": "You’re the host: give a toast in character before dinner, and don’t let anyone accuse you without defending yourself.", "token": "vusvcbm", "img": "c01.jpg", "g": "F"}, {"n": 2, "name": "Benny Ortega", "role": "The manager", "killer": true, "item": "A red handkerchief (front pocket, or tied at your wrist) and a small bag you carry like a briefcase. Keep both on you all night.", "who": "Manager of the band Valmont for 15 years and in charge of the money Isabella inherited from her parents: the royalties from their songs. Smooth, calm, you never raise your voice.", "truth": "For years you’ve been taking money from Isabella’s royalties to cover tours that lost money. This afternoon Gus checked the account book. At 11:05 you went into the Recording Studio. He yelled “You stole from the girl!” and you answered “You can’t prove anything.” At 11:15, when he turned toward the safe, you hit him with the Gold Record award and lost a cufflink in the struggle. At 11:20 you dragged him through the inside door into the Record Room, left him at the foot of the shelves as if he had fallen, and burned the account-book page in the fireplace. At 11:25 you hid the award in the big flowerpot by the Pool, and at 11:30 you came back through the Terrace.", "alibi": "“From 11:00 to 11:30 I was on the Dance Floor watching Isabella open her presents.”", "r1": "Gus had been confused lately, forgetting things. That whole “someone is stealing from me” thing was probably in his head.", "r2": "Say you saw Teo, the roadie, hanging around the Recording Studio hallway before 11:00 (it’s a lie).", "r3": "As the manager, you know Teo is Gus’s secret son. Reveal it so people suspect him.", "cornered": "You lost the cufflink this afternoon going over contracts in the Studio; a red handkerchief is “very common”; Gus “kept the books himself, drugged up by Dr. Ferrer.”", "mission": "Get most people to accuse someone else. You can lie about everything.", "token": "vqb8pzg", "img": "c02.jpg", "g": "M"}, {"n": 3, "name": "Dr. Leo Ferrer", "role": "The tour doctor", "item": "A white handkerchief. Wear it in a front pocket.", "who": "The doctor who travels with the band on every tour. Highly respected… by anyone who doesn’t know what’s in your little bottles.", "secret": "Your famous “voice vitamins” are just candy and honey water. Gus found out and threatened to report you. Also, at 10:40 you put a few drops of sedative in his drink because he was so worked up.", "r1": "From 11:00 to 11:25 I was playing cards with Max Moretti on the Dance Floor.", "r2": "After his announcement, Gus told me, furious, that he had checked “the girl’s accounts” and heads would roll tomorrow.", "r3": "When I examined the body, there was very little blood in the Record Room for a blow like that. Gus was killed somewhere else and moved there.", "mission": "If someone finds the sedative bottle (E2), explain that “a few drops never killed anybody.”", "token": "v4jrhz4", "img": "c03.jpg", "g": "M"}, {"n": 4, "name": "Celeste Moon", "role": "The astrologer", "item": "A purple feather (in your hair, on an ear or on your bag) and a deck of cards.", "who": "Astrologer and guru to the rock stars. Gus never went on stage without you reading his cards, and he paid you very well.", "secret": "You’re a fraud. Gus hired a private investigator, and the report was in the Recording Studio desk. At 10:45 you forced the drawer open with the silver letter opener and took the report. At 10:55 you heard footsteps and ran, leaving the letter opener behind.", "r1": "From 11:10 to 11:25 I was on the Terrace reading Julián Bravo’s cards.", "r2": "The cards foretold death… and at around 11:25 I saw a dark figure cross from the Record Room toward the Pool, carrying something shiny.", "r3": "If pressed, confess what happened in the Studio at 10:45: the drawer and the report. Gus wasn’t there yet and was still alive.", "mission": "Read the cards for at least three people and give them mysterious “cosmic” predictions.", "token": "v5rhasb", "img": "c04.jpg", "g": "F"}, {"n": 5, "name": "Rafa “Thunder” Montenegro", "role": "The ex-drummer", "item": "A pair of drumsticks. Keep them in your back pocket.", "who": "The original drummer of the band Valmont. In 1975 Gus kicked you out right before the world tour. Loud, proud, you talk by shouting.", "secret": "You’re broke. Gus lent you $20,000 for your new band and was going to collect it tomorrow.", "r1": "Yes, I argued with Gus in the hallway at 10:50; he told me “we’ll talk tomorrow.” Then I went to the Bar to have a drink alone, from 11:00 to 11:30.", "r2": "My revolver disappeared from my jacket in the coat room before 11:00. I’ve carried it since I got robbed on tour.", "r3": "At 11:15 Teo came into the Bar for ice and sodas. He saw me, I saw him.", "mission": "If the IOU (E3) shows up, play it down. Do at least one drum solo on the table with your sticks.", "token": "vykavwh", "img": "c05.jpg", "g": "M"}, {"n": 6, "name": "Margot Ashford", "role": "The muse", "item": "A fringe scarf. Wear it all night: you “went to get it” at 11:20.", "who": "A famous model. Years ago you were Gus’s girlfriend and inspired “Margot, Don’t Go,” his biggest hit. You say you’re over him.", "secret": "You still loved him. You wrote him a letter signed only “M.” begging for one last chance.", "r1": "From 11:00 to 11:20 I was on the Dance Floor with Isabella, watching her open her presents.", "r2": "At 11:20 I went to get my scarf and walked past the Recording Studio. The door was locked, and inside I heard something heavy being dragged, then an inside door creaking.", "r3": "If pressed: I passed the Studio because I wanted to slip my letter under the door. I did, and I was back at the party at 11:30.", "mission": "Cry dramatically when you talk about Gus. If the letter signed “M.” (E4) shows up, let people suspect Max Moretti.", "token": "v78ftiw", "img": "c06.jpg", "g": "F"}, {"n": 7, "name": "Vivi Laroche", "role": "The opening singer", "item": "A microphone. Keep it with you all night.", "who": "The new voice of rock, “just arrived from Paris.” Hired to open tonight’s concert. You speak with a French accent all night.", "secret": "You’re not from Paris, you’re from Barahona. And you’re secretly engaged to Teo, the roadie. Gus found out and threatened to fire him and cancel your contract.", "r1": "I sang until 11:00, then went out for some fresh air (don’t say where).", "r2": "From 11:15 to 11:35 I was by the Pool. At 11:25 a man in dark clothes showed up; I hid behind the plants. He shoved something gold and heavy into the big flowerpot. I only saw his silhouette… and a red handkerchief on him.", "r3": "If pressed: I was by the Pool waiting for Teo, because we’re engaged.", "mission": "Never drop the French accent, and sing (even just a little) when the cake is cut.", "token": "vaqijie", "img": "c07.jpg", "g": "F"}, {"n": 8, "name": "Teo Castellanos", "role": "The roadie", "item": "A blue bandana (on your head, neck or wrist).", "who": "Roadie and sound tech for the band for 5 years. Quiet, observant, you know every cable and every corner of the mansion.", "secret": "This week you found out, from a letter your late mother left you, that you’re Gus Valmont’s son. He never acknowledged you and you’re deeply hurt. You’re also engaged to Vivi.", "r1": "I was setting up the equipment, then Nessa sent me to the Bar for ice.", "r2": "At 11:15, in the Bar, Rafa “Thunder” was alone, drinking and muttering “cheap old man.”", "r3": "At 11:35 I went to the Pool. The soil in the big flowerpot had just been dug up, and in the mud there were prints of dress shoes, not work boots.", "mission": "Find out whether the new will says anything about you.", "token": "v2ih33a", "img": "c08.jpg", "g": "M"}, {"n": 9, "name": "Inés “Nessa” Valmont", "role": "The cousin", "item": "A camera around your neck. Take real photos of the suspects all night.", "who": "Isabella’s cousin and Gus’s niece. You’re 19 and live in the mansion. A rebel photographer: you never let go of your camera and you have copies of every key in the house.", "secret": "You secretly read Uncle Gus’s letters; that’s how you found out Teo is his son. Your uncle had also threatened to send you to a boarding school in Switzerland for sneaking out to concerts.", "r1": "I was taking photos of the party all over the house. At 11:45 I went into the Record Room to get my uncle for the midnight photo and found him dead.", "r2": "From 11:05 to 11:15 I was in the Recording Studio hallway changing my film. I heard Uncle Gus yell “You stole from the girl!” and another man’s voice, low and calm: “You can’t prove anything.” Then a dull thud and silence.", "r3": "That calm voice was not Rafa’s: he always shouts. And this afternoon I heard my cousin Isabella yell at our uncle, “I wish you’d just disappear!”", "mission": "Protect Teo from suspicion without revealing his secret, unless you have no choice.", "token": "vn56mc2", "img": "c09.jpg", "g": "F"}, {"n": 10, "name": "Julián Bravo", "role": "The reporter", "item": "A small notebook and pen. Take notes all night.", "who": "Star reporter for the rock magazine Decibel. Always with your notebook, hunting for the next scandal.", "secret": "You’re writing an exclusive on “Gus Valmont’s secret heir.” Gus found out and threatened to sue you and ruin you.", "r1": "I was covering the party. At 11:10 I went out to the Terrace and Celeste Moon read my cards until 11:25.", "r2": "At 11:00 I saw Gus go into the Recording Studio. At 11:05 someone knocked and went in: it was dim, I only saw dark clothes and that they were carrying a bag like a briefcase.", "r3": "That person didn’t come out of the Studio while I was still in the hallway, until 11:10.", "mission": "Get an “exclusive quote” from every suspect and write it in your notebook.", "token": "vwj5qtd", "img": "c10.jpg", "g": "M"}, {"n": 11, "name": "Max “The Ace” Moretti", "role": "The promoter", "item": "A white flower (pin it on) and a deck of cards.", "who": "Concert promoter and owner of The Basement, the most famous rock club at the port. Charming, a gambler, always with a deck of cards in your pocket.", "secret": "Gus wanted to buy The Basement’s building to shut it down, and you owe money to dangerous people. At 10:45 you took Rafa’s revolver from the coat room “for protection.” You never fired it.", "r1": "From 11:00 to 11:25 I played cards with Dr. Ferrer on the Dance Floor. He lost three hands.", "r2": "Margot left the Dance Floor at 11:20 “to get her scarf” and didn’t come back until 11:30.", "r3": "At 11:30 I saw Benny Ortega come in from the Terrace. He had dirt on his shoes and kept fixing his shirt cuff, as if something was missing.", "mission": "Place bets (with chips or candy) with the others on who the killer is.", "token": "vus6kx6", "img": "c11.jpg", "g": "M"}, {"n": 12, "name": "Lola Starr", "role": "The backup singer", "extra": true, "item": "Big star-shaped sunglasses (or any statement sunglasses).", "who": "Backup singer for the band Valmont for ten years. You’ve sung every chorus of every hit, but your name never makes it onto the album cover.", "secret": "Gus told you this week he was replacing you with Vivi Laroche for the next tour. You were furious and told Daisy you’d “make him regret it.”", "r1": "From 11:00 to 11:28 I was in the coat room fixing my makeup with Daisy Rivers.", "r2": "At 10:45, in the coat room, I saw Max Moretti take something small and heavy out of someone else’s jacket and slip it into his own.", "r3": "When I came out of the coat room at 11:28, I saw someone in dark clothes walking fast from the garden side toward the Terrace, holding a little bag. I couldn’t see the face.", "mission": "Make sure everyone knows you deserved to be the lead singer. Sing at least one line of “Margot, Don’t Go” during the night.", "token": "vkrm55i", "img": "c12.jpg", "g": "F"}, {"n": 13, "name": "Daisy Rivers", "role": "Gus’s personal assistant", "extra": true, "item": "A clipboard (or a folder) and a pen.", "who": "Gus Valmont’s personal assistant. You run his schedule, his phone calls and his whole life. Nothing happens in this house without you knowing.", "secret": "For months you’ve been selling backstage gossip about Gus to Julián Bravo’s magazine. If Gus had found out, you’d have been fired on the spot.", "r1": "From 11:00 to 11:28 I was in the coat room with Lola Starr. She was fixing her makeup, I was answering messages for Gus.", "r2": "This morning Gus asked me to bring him the account book of “the girl’s royalties” and to cancel every meeting he had with Benny Ortega next week.", "r3": "At 5 p.m. I typed the draft of the new will. I can’t say what it says… but someone at this party was going to lose their job.", "mission": "Act like you’re still working: take “notes” on everyone and remind the Detective you know Gus’s schedule better than anyone.", "token": "vw8cdhg", "img": "c13.jpg", "g": "F"}, {"n": 14, "name": "Johnny “Riff” Rivera", "role": "The lead guitarist", "extra": true, "item": "A black leather wristband (or any rocker bracelet).", "who": "Lead guitarist of the band Valmont since day one. The best riffs in rock are yours, but the spotlight was always Gus’s.", "secret": "You wrote “Margot, Don’t Go,” the band’s biggest hit, but Gus put only his name on it. Tonight you asked him to share the credit and he laughed at you.", "r1": "From 11:05 to 11:30 I was in the kitchen eating with the catering staff. Ask them.", "r2": "Last week Benny Ortega asked me for a loan. He said “these tours are bleeding me dry.” A manager asking a guitarist for money? Weird.", "r3": "At 11:00, on my way to the kitchen, I passed the Recording Studio hallway. Gus was going in, and someone was walking toward the door behind him carrying a bag like a briefcase.", "mission": "Air-guitar at least one solo during the night, and remind everyone who really wrote the hits.", "token": "vye49gy", "img": "c14.jpg", "g": "M"}], "zones": [{"k": "record", "name": "The Record Room", "nena": "The tall lit shelving wall", "img": "zrecord.jpg", "text": "Floor-to-ceiling shelves of vinyl, a rolling ladder and a fireplace still warm. At 11:45 Nessa found Gus here, at the foot of the shelves. Nobody touches the body outline.", "token": "znjrk2a"}, {"k": "studio", "name": "The Recording Studio", "nena": "The corner by the curved, lit staircase", "img": "zstudio.jpg", "text": "Gus’s private studio: the mixing desk, the tape machines, a small safe and his wall of gold records. A door at the back connects to the Record Room.", "token": "zidhuat"}, {"k": "pool", "name": "The Pool", "nena": "The big dried-plant pots by the dark painting", "img": "zpool.jpg", "text": "Palm trees bending in the storm and big terracotta pots along the edge. A quiet spot to hide from the party… or to hide something.", "token": "zm64nzd"}, {"k": "bar", "name": "The Bar", "nena": "The bar", "img": "zbar.jpg", "text": "Bottles, an ice bucket and sodas for the party. Whoever came here between 11:00 and 11:30 had a good view of who came in and out.", "token": "z86hbdm"}, {"k": "dance", "name": "The Dance Floor", "nena": "The high black tables with stools", "img": "zdance.jpg", "text": "Where Isabella opened her presents and the card game went on. Everybody says they were here. Not everybody was.", "token": "zb75zp5"}, {"k": "terrace", "name": "The Terrace", "nena": "By the windows with curtains", "img": "zterrace.jpg", "text": "Curtains whipping in the wind, a candle and a tarot deck on a small table. The way in and out from the garden.", "token": "zniahav"}], "evid": [{"code": "E1", "round": 1, "title": "Coroner’s report", "text": "Death between 11:00 and 11:30 p.m. Cause: a single blow to the back of the head with a heavy object with a round base. There are traces of gold paint in the wound. No strangulation marks, cuts or bullets. In the blood, a mild sedative: it made him drowsy, but it didn’t kill him.", "token": "xeijqx6", "doc": "report"}, {"code": "E2", "round": 2, "title": "Sedative bottle", "text": "A half-empty bottle labeled “Dr. L. Ferrer — To calm the nerves before the show.”", "token": "x63jwy6", "img": "e02.jpg"}, {"code": "E3", "round": 2, "title": "An IOU", "text": "Signed by Rafa Montenegro: “I owe Gus Valmont $20,000.” Due tomorrow.", "token": "xtgnkzd", "doc": "iou"}, {"code": "E4", "round": 2, "title": "A love letter", "text": "Addressed to Gus: “I never stopped waiting for you. Give me one last chance.” Signed only “M.”", "token": "x7ryzrp", "img": "e04.jpg"}, {"code": "E5", "round": 2, "title": "A reporter’s notebook", "text": "Belongs to J. Bravo. Open to the page: “Decibel exclusive: Gus Valmont’s secret heir.”", "token": "xydjxv3", "img": "e05.jpg"}, {"code": "E6", "round": 2, "title": "Bloodstain and drag marks", "text": "A bloodstain under the Recording Studio rug, and drag marks leading to the inside door into the Record Room.", "token": "xx5stpv", "img": "e06.jpg"}, {"code": "E7", "round": 2, "title": "Silver letter opener", "text": "Found next to a forced desk drawer in the Recording Studio. It’s clean, no blood. A purple feather is caught on it.", "token": "xnypede", "img": "e07.jpg"}, {"code": "E8", "round": 3, "title": "A half-burned page", "text": "From the account book of Isabella’s royalties, found in the Record Room fireplace. In Gus’s handwriting: “$40,000 missing — B.O.?”", "token": "xkksqe4", "doc": "burnt"}, {"code": "E9", "round": 3, "title": "A gold cufflink", "text": "Engraved with the initials B.O. Found on the floor next to the safe in the Recording Studio.", "token": "x684hci", "img": "e09.jpg"}, {"code": "E10", "round": 3, "title": "The Gold Record award", "text": "Buried in the big flowerpot by the Pool. The gold paint is scraped and there’s a dark stain on the base. In the Recording Studio, there’s an empty spot on the wall where it used to hang.", "token": "xuge8eh", "img": "e10.jpg"}, {"code": "E11", "round": 3, "title": "Draft of the new will", "text": "“I name my niece Isabella sole heir and owner of Valmont Records. I acknowledge Teo Castellanos as my son and leave him my guitars and the beach house. I will pay for my niece Inés’s photography studies in New York. I fire Benny Ortega as manager and order an audit of my niece’s royalties.”", "token": "x25tcq5", "doc": "will"}, {"code": "E12", "round": 3, "title": "Rafa’s revolver", "text": "Found in Max Moretti’s jacket. All the bullets are still in it: it has not been fired.", "token": "xpnx6ea", "img": "e12.jpg"}], "conf": "Fine… it was me. For years I managed Isabella’s royalties, and for years I took what wasn’t mine. One tour lost money, then another, and another. This afternoon Gus opened the account book and saw everything. When I walked into the Studio he shouted it in my face: “You stole from the girl!” I told him he couldn’t prove anything. He turned toward the safe to get the proof… and his Gold Record was right there on the wall. One blow. I dragged him to the Record Room to make it look like an accident, burned the page and buried the award by the pool. I planned everything… except this cufflink. The show is over. Happy birthday, Isabella. I’m sorry.", "tl": [["10:30", "Gus announces the new will and the theft", "Everyone"], ["10:40", "Dr. Ferrer puts sedative in his drink", "Dr. Ferrer, E2"], ["10:45", "Max takes Rafa’s revolver from the coat room", "Max, Rafa, Lola, E12"], ["10:45–10:55", "Celeste forces the Studio drawer", "Celeste, E7"], ["10:50", "Rafa argues with Gus in the hallway", "Rafa"], ["11:00", "Gus goes into the Recording Studio", "Julián, Johnny"], ["11:05", "Benny goes in with his bag", "Julián, Johnny"], ["11:05–11:15", "“You stole from the girl!” / “You can’t prove anything”", "Nessa"], ["11:15", "The blow with the award; Benny loses a cufflink", "Nessa, E1, E9"], ["11:15", "Teo finds Rafa alone in the Bar", "Teo, Rafa"], ["11:20", "Benny drags the body and burns the page", "Margot, E6, E8"], ["11:25", "Benny buries the award by the Pool", "Vivi, Celeste, E10"], ["11:28–11:30", "Benny comes back through the Terrace", "Lola, Max"], ["11:35", "Teo sees the dug-up pot and dress-shoe prints", "Teo"], ["11:45", "Nessa finds the body", "Nessa"]], "hide": [["E1", "Read by you", "Round 1"], ["E2", "Restroom", "Round 2"], ["E3", "Under a cushion on the low seats", "Round 2"], ["E4", "Staircase corner (Recording Studio)", "Round 2"], ["E5", "Entrance", "Round 2"], ["E6", "Staircase corner (Recording Studio)", "Round 2"], ["E7", "Staircase corner (Recording Studio)", "Round 2"], ["E8", "Lit shelving wall (Record Room)", "Round 3"], ["E9", "Staircase corner (Recording Studio)", "Round 3"], ["E10", "Buried in a big pot (Pool corner)", "Round 3"], ["E11", "Read by you", "Round 3"], ["E12", "Reception / coat check", "Round 3"]], "host": "dtqmit2"};
+const app = document.getElementById("app");
+const WEAPONS = ["Gold Record award","Metal mic stand","Guitar cable","Silver letter opener","Sedative bottle","Revolver"];
+const PLACES = DATA.zones.map(z => z.name.replace(/^The /, ""));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(k)); } catch(e){ return null; } },
+  set(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+let fromHost = false;
+
+function bar(left, right){ return `<div class="bar"><span>${left}</span><span>${right}</span></div>`; }
+
+function charView(c){
+  const k = !!c.killer;
+  const tail = c.extra ? "It’s part of your character: keep it on." : "It’s a clue in the game: keep it visible all night.";
+  const rounds = [["1", k ? "Say" : "Say", c.r1], ["2", k ? "Say" : "Reveal", c.r2], ["3", k ? "Say" : "Reveal", c.r3]];
+  return `${bar("Valmont Manor · 1977", "Case file No. " + String(c.n).padStart(2,"0"))}
+  <div class="hero"><img src="${c.img}" alt="Portrait of ${esc(c.name)}, ${esc(c.role)}"><div class="cap"><h1>${esc(c.name)}</h1><div class="role">${esc(c.role)}</div></div></div>
+  <div class="item"><b>Your item</b><span>${esc(c.item)} ${tail}</span></div>
+  <div class="panel"><div class="lab">Who you are</div><p>${esc(c.who)}</p></div>
+  ${k ? `<div class="killer">You are the killer.<small>Tell no one. Keep your screen to yourself.</small></div>
+     <div class="panel secret" id="sec"><div class="lab">What really happened</div><p class="txt">${esc(c.truth)}</p><button class="reveal" data-reveal>Tap to read</button></div>
+     <div class="panel"><div class="lab">Your alibi (a lie)</div><p>${esc(c.alibi)}</p></div>`
+   : `<div class="panel secret" id="sec"><div class="lab">Your secret</div><p class="txt">${esc(c.secret)}</p><button class="reveal" data-reveal>Tap to read</button></div>`}
+  <div class="rounds">${rounds.map(([n,v,t]) => `<div class="rnd"><div class="no">${n}</div><div><div class="verb">Round ${n} · ${v}</div><p>${esc(t)}</p></div></div>`).join("")}</div>
+  ${k ? `<div class="panel"><div class="lab">If they corner you</div><p>${esc(c.cornered)}</p></div>` : ""}
+  <div class="panel"><div class="lab">Your mission</div><p>${esc(c.mission)}</p></div>
+  <div class="panel" id="acc"></div>
+  <p class="note">Wait for the Detective before sharing each round. Keep this page to yourself.</p>`;
+}
+
+function accView(c){
+  const box = document.getElementById("acc"); if(!box) return;
+  const key = "acc_" + c.token; const saved = store.get(key);
+  const suspects = DATA.chars.map(x => x.name);
+  if(saved){
+    box.innerHTML = `<div class="lab">Your sealed accusation</div>
+      <div class="sealed"><div><span>MY CHARACTER</span>${esc(c.name)}</div><div><span>THE KILLER IS</span>${esc(saved.who)}</div><div><span>THE WEAPON WAS</span>${esc(saved.weapon)}</div><div><span>HE WAS KILLED IN</span>${esc(saved.place)}</div><div><span>THE MOTIVE WAS</span>${esc(saved.motive || "—")}</div></div>
+      <p class="note">Show this to the Detective at the reveal.</p><button class="btn ghost" id="accEdit">Change it</button>`;
+    document.getElementById("accEdit").onclick = () => { store.set(key, null); accView(c); };
+    return;
+  }
+  const opt = (arr) => `<option value="">Choose…</option>` + arr.map(a => `<option>${esc(a)}</option>`).join("");
+  box.innerHTML = `<div class="lab">Your accusation · 11:40 PM</div>
+    <form class="acc" id="accForm">
+      <label for="aWho">The killer is</label><select id="aWho" required>${opt(suspects)}</select>
+      <label for="aWeapon">The weapon was</label><select id="aWeapon" required>${opt(WEAPONS)}</select>
+      <label for="aPlace">He was killed in</label><select id="aPlace" required>${opt(PLACES)}</select>
+      <label for="aMotive">The motive was</label><textarea id="aMotive" rows="2"></textarea>
+      <button class="btn" type="submit">Seal my accusation</button>
+      <p class="note" style="margin:0">Fill this in only when the Detective calls for accusations. One per person.</p>
+    </form>`;
+  document.getElementById("accForm").addEventListener("submit", e => {
+    e.preventDefault();
+    store.set(key, {who: aWho.value, weapon: aWeapon.value, place: aPlace.value, motive: aMotive.value.trim()});
+    accView(c);
+  });
+}
+
+function zoneView(z){
+  return `${bar("Valmont Manor · 1977", "Crime scene map")}
+  <div class="hero"><img src="${z.img}" alt="${esc(z.name)}, Valmont Manor 1977"><div class="cap"><div class="kicker">Zone</div><h1>${esc(z.name)}</h1></div></div>
+  <div class="panel"><div class="where"><span class="lab">At La Nena</span><b>${esc(z.nena)}</b></div></div>
+  <div class="panel"><p>${esc(z.text)}</p></div>
+  <p class="note">Evidence codes may be hidden in this zone. Search it when the Detective opens the hunt.</p>`;
+}
+
+function docView(e){
+  const t = esc(e.text);
+  if(e.doc === "report") return `<div class="doc"><div class="head"><span>Coroner’s office</span><span>Case 77-1024</span></div><div class="body">Subject: Gus Valmont.<br>${t}</div><div class="stamp">Official · Do not remove</div></div>`;
+  if(e.doc === "iou") return `<div class="doc hand"><div class="head"><span>IOU</span><span>Valmont Manor</span></div><div class="body">I owe Gus Valmont<br>$20,000.<br>Due tomorrow.<br>— Rafa Montenegro</div></div>`;
+  if(e.doc === "burnt") return `<div class="doc burnt hand"><div class="head"><span>Royalties · Isabella V.</span><span>1977</span></div><div class="body">Tour 75 … Tour 76 …<br><b>$40,000 missing — B.O.?</b></div></div><div class="panel"><p>${t}</p></div>`;
+  if(e.doc === "will") return `<div class="doc"><div class="head"><span>Last will · draft</span><span>G. Valmont</span></div><div class="body">${t}</div><div class="stamp">Draft · Unsigned</div></div>`;
+  return "";
+}
+
+function evidView(e){
+  const media = e.doc ? docView(e) : `<div class="hero sq"><img src="${e.img}" alt="Evidence ${e.code}: ${esc(e.title)}"></div>`;
+  const body = (e.doc === "burnt" || e.doc) ? "" : `<div class="panel"><p>${esc(e.text)}</p></div>`;
+  return `${bar("Police evidence", "Round " + e.round)}
+  <div><div class="kicker">Evidence ${e.code}</div><h1>${esc(e.title)}</h1></div>
+  ${media}${body}
+  <p class="note">Read it out loud when the Detective asks.</p>`;
+}
+
+function hostView(){
+  const D = DATA;
+  const row = (...cells) => `<tr>${cells.map(c => `<td>${c}</td>`).join("")}</tr>`;
+  const link = (tk, label) => `<button class="linkbtn" data-go="${tk}">${esc(label)}</button>`;
+  const prog = [["8:00 PM","Arrival","Give each guest their QR slip and item at the door."],["9:30 PM","The case opens","Cut the music. Read Scene 1."],["9:40 PM","Round 1","Everyone says their Round 1 lines. Read E1."],["10:15 PM","Round 2","10-minute hunt for evidence codes (E2–E7). Each finder reads theirs aloud. Round 2 lines."],["11:00 PM","Round 3","Put out or show E12, E8, E9, E10 and read E11. Round 3 lines, 15 minutes of questions."],["11:40 PM","Accusations","Everyone fills in the accusation at the bottom of their file and seals it."],["11:50 PM","The reveal","Check the sealed accusations. Name the killer. Benny reads the confession."],["12:00 AM","Cake and prizes","Happy birthday to Adriana."]];
+  return `${bar("Detective Bonnelly", "Case control")}
+  <div class="host">
+  <h1>Case control</h1>
+  <p class="note" style="text-align:left">Only you have this link. Tap any name to open that file; use Back to return here.</p>
+  <h2>Tonight</h2><div class="tbl"><table><tr><th>Time</th><th>Moment</th><th>What you do</th></tr>${prog.map(p => row(p[0], `<b>${p[1]}</b>`, esc(p[2]))).join("")}</table></div>
+  <h2>Scene 1 · 9:30 PM</h2>
+  <div class="panel"><p class="say">Quiet, please. Turn that music down. Tonight we were celebrating Isabella Valmont’s 18th birthday. At 10:30, Gus Valmont took the microphone and promised to read his new will at midnight. He also said someone in this house was stealing from him. At 11:45 his niece Nessa found him dead in the Record Room, at the foot of the shelves. The rock legend has played his last encore. The bridge went down in the storm: nobody leaves this mansion until dawn. Every one of you had a reason to hate him. And one of you… killed him.</p></div>
+  <div class="panel"><div class="lab">Round 1 · 9:40</div><p class="say">“Introduce yourselves: who you are, what tied you to Gus Valmont, and where you were between 11:00 and 11:45.”</p><p>Then read ${link(D.evid[0].token,"E1, the Coroner’s report")}.</p></div>
+  <div class="panel"><div class="lab">Round 2 · 10:15</div><p class="say">“My officers searched the house, but the clues are still hidden. You have 10 minutes to find the evidence codes.”</p></div>
+  <div class="panel"><div class="lab">Round 3 · 11:00</div><p class="say">“A telex just arrived from headquarters with new evidence.”</p><p>Open in this order: ${["E12","E11","E8","E9","E10"].map(c => { const e = D.evid.find(x => x.code === c); return link(e.token, c); }).join(" · ")}. Rule: if two people ask someone directly about their secret, they must confess it.</p></div>
+  <div class="panel"><div class="lab">The reveal · 11:50</div><p class="say">“The person who killed Gus Valmont is… Benny Ortega, his manager.”</p><p>Benny stands and reads the confession (below).</p></div>
+  <h2>Characters</h2><div class="tbl"><table><tr><th>#</th><th>Character</th><th>Item to hand over</th></tr>${D.chars.map(c => row(c.n + (c.extra ? "*" : ""), link(c.token, c.name) + `<br><span class="note">${esc(c.role)} · ${c.g === "F" ? "girl" : "guy"}${c.killer ? " · THE KILLER" : ""}</span>`, esc(c.item))).join("")}</table></div>
+  <p class="note" style="text-align:left">* Backups, only if more guests come. Adriana is always No. 1. Give Benny to an outgoing guest.</p>
+  <h2>Zones at La Nena</h2><div class="tbl"><table><tr><th>Zone</th><th>Where</th></tr>${D.zones.map(z => row(link(z.token, z.name), esc(z.nena))).join("")}</table></div>
+  <h2>Evidence</h2><div class="tbl"><table><tr><th>Code</th><th>Where to hide the code</th><th>Round</th></tr>${D.evid.map(e => { const h = D.hide.find(x => x[0] === e.code); return row(link(e.token, e.code + " " + e.title), esc(h ? h[1] : ""), e.round); }).join("")}</table></div>
+  <h2>Solution</h2>
+  <div class="panel"><p><b>Benny Ortega killed Gus Valmont with the Gold Record award, in the Recording Studio,</b> then dragged the body to the Record Room to fake a fall. Motive: he had stolen $40,000 from Isabella’s royalties, and Gus was going to fire him and turn him in at midnight.</p></div>
+  <div class="tbl"><table><tr><th>Time</th><th>What really happened</th><th>Who can tell it</th></tr>${D.tl.map(t => row(esc(t[0]), esc(t[1]), esc(t[2]))).join("")}</table></div>
+  <div class="panel"><div class="lab">Confession (Benny reads it)</div><p class="say">${esc(D.conf)}</p></div>
+  <div class="panel"><div class="lab">Scoring</div><p>Killer 3 · real place 2 · weapon 1 · motive 1. Prizes: Best Detective, Best Rock Look, Star of the Show, Master Liar (Benny, if he fooled half the group).</p></div>
+  </div>`;
+}
+
+function landing(){
+  return `<div class="landing"><div class="bar" style="justify-content:center"><span>Valmont Records presents</span></div>
+  <div class="script">The Last Encore</div><h1>Murder at Valmont Manor</h1>
+  <p>1977. Scan your code to open your case file.</p><p class="note">Each code opens one file. Keep yours to yourself.</p></div>`;
+}
+
+function render(tk){
+  const D = DATA;
+  let html, after = null;
+  const c = D.chars.find(x => x.token === tk), z = D.zones.find(x => x.token === tk), e = D.evid.find(x => x.token === tk);
+  if(tk && tk === D.host){ fromHost = true; html = hostView(); }
+  else if(c){ html = charView(c); after = () => accView(c); }
+  else if(z){ html = zoneView(z); }
+  else if(e){ html = evidView(e); }
+  else { html = landing(); }
+  const back = fromHost && tk !== D.host ? `<button class="back" data-go="${D.host}">← Back to case control</button>` : "";
+  app.innerHTML = back + html;
+  if(after) after();
+  window.scrollTo(0, 0);
+}
+
+app.addEventListener("click", ev => {
+  const r = ev.target.closest("[data-reveal]");
+  if(r){ const s = r.closest(".secret"); const open = s.classList.toggle("open"); r.textContent = open ? "Hide" : "Tap to read"; return; }
+  const g = ev.target.closest("[data-go]");
+  if(g){ render(g.dataset.go); }
+});
+window.addEventListener("hashchange", () => render(location.hash.slice(1)));
+render(location.hash.slice(1));
+</script>
+</body></html>
